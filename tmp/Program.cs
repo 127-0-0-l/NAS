@@ -62,7 +62,7 @@ namespace tmp
         {
             get
             {
-                return Volume - Parts.Select(p => p.Volume).Sum();
+                return Volume - Parts.Sum(p => p.Volume);
             }
         }
         public Disk(int id, int volume)
