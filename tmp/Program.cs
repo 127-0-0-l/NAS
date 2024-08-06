@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace tmp
 {
@@ -41,7 +39,7 @@ namespace tmp
                 volume = disks
                     .Where(d => d.FreeSpace > 0)
                     .OrderByDescending(d => d.FreeSpace)
-                    .Last().FreeSpace / 5;
+                    .Last().FreeSpace / 2;
 
                 volume = volume > 0 ? volume : 1;
 
@@ -58,7 +56,7 @@ namespace tmp
                 counter++;
             }
             while (disks.Where(d => d.FreeSpace > 0).Count() > 1);
-
+            sw.Stop();
             foreach (var disk in disks)
             {
                 Console.WriteLine($"disk {disk.Id}: {disk.Volume} : {disk.FreeSpace}");
@@ -67,7 +65,7 @@ namespace tmp
                     Console.WriteLine($"{part.Key}: {part.Value}");
                 }
             }
-            sw.Stop();
+            
             Console.WriteLine(sw.Elapsed.ToString());
             Console.WriteLine(counter);
             Console.ReadKey();
