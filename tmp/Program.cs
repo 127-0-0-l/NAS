@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,38 +18,58 @@ namespace tmp
             for (int i = 0; i < dskCount; i++)
             {
                 Console.Write($"{i + 1}: ");
-                disks.Add(new Disk(i, Convert.ToInt32(Console.ReadLine())));
+                disks.Add(new Disk(i, Convert.ToInt64(Console.ReadLine())));
             }
+
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            long volume = 0;
+            int counter = 0;
 
             do
             {
-                Disk diskForData = disks
+                Disk disk1 = disks
                     .OrderByDescending(d => d.FreeSpace)
                     .First();
 
-                Disk diskForCopy = disks
-                    .Where(d => d.Id != diskForData.Id)
+                Disk disk2 = disks
+                    .Where(d => d.Id != disk1.Id)
                     .OrderByDescending(d => d.FreeSpace)
                     .First();
 
-                int diskIdForData =
-                    diskForData.Parts.Count(p => p.DiskId == diskForData.Id)
-                    >= diskForData.Parts.Count(p => p.DiskId == diskForCopy.Id)
-                    ? diskForData.Id : diskForCopy.Id;
+                volume = disks
+                    .Where(d => d.FreeSpace > 0)
+                    .OrderByDescending(d => d.FreeSpace)
+                    .Last().FreeSpace / 5;
 
-                diskForData.Parts.Add(new Part(diskIdForData, 1));
-                diskForCopy.Parts.Add(new Part(diskIdForData, 1));
+                volume = volume > 0 ? volume : 1;
+
+                if (disk1.Parts.ContainsKey(disk2.Id))
+                {
+                    disk1.Parts[disk2.Id] += volume;
+                    disk2.Parts[disk1.Id] += volume;
+                }
+                else
+                {
+                    disk1.Parts.Add(disk2.Id, volume);
+                    disk2.Parts.Add(disk1.Id, volume);
+                }
+                counter++;
             }
             while (disks.Where(d => d.FreeSpace > 0).Count() > 1);
 
             foreach (var disk in disks)
             {
                 Console.WriteLine($"disk {disk.Id}: {disk.Volume} : {disk.FreeSpace}");
-                //foreach (var part in disk.Parts)
-                //{
-                //    Console.WriteLine()
-                //}
+                foreach (var part in disk.Parts)
+                {
+                    Console.WriteLine($"{part.Key}: {part.Value}");
+                }
             }
+            sw.Stop();
+            Console.WriteLine(sw.Elapsed.ToString());
+            Console.WriteLine(counter);
             Console.ReadKey();
         }
     }
@@ -56,29 +77,18 @@ namespace tmp
     class Disk
     {
         public int Id { get; set; }
-        public int Volume {  get; set; }
-        public List<Part> Parts { get; set; } = new List<Part>();
-        public int FreeSpace
+        public long Volume {  get; set; }
+        public Dictionary<int, long> Parts { get; set; } = new Dictionary<int, long>();
+        public long FreeSpace
         {
             get
             {
-                return Volume - Parts.Sum(p => p.Volume);
+                return Volume - Parts.Sum(p => p.Value);
             }
         }
-        public Disk(int id, int volume)
+        public Disk(int id, long volume)
         {
             Id = id;
-            Volume = volume;
-        }
-    }
-
-    class Part
-    {
-        public int DiskId { get; set; }
-        public int Volume { get; set; }
-        public Part (int diskId, int volume)
-        {
-            DiskId = diskId;
             Volume = volume;
         }
     }
