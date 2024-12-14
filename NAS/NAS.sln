@@ -4,6 +4,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAS.Web", "NAS.Web\NAS.Web.csproj", "{0368BC52-A0D0-41DB-861C-7D77A7C1A57B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FEFE42D0-2EAE-439E-8348-EB54D7518D99} = {FEFE42D0-2EAE-439E-8348-EB54D7518D99}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAS.Storage", "NAS.Storage\NAS.Storage.csproj", "{A6EB1ADE-4807-4F5F-B3C4-5F5BF9D81188}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAS.Logic", "NAS.Logic\NAS.Logic.csproj", "{FEFE42D0-2EAE-439E-8348-EB54D7518D99}"
+	ProjectSection(ProjectDependencies) = postProject
+		{17CB795B-DFBB-4148-9666-18DDAF70C7CC} = {17CB795B-DFBB-4148-9666-18DDAF70C7CC}
+		{A6EB1ADE-4807-4F5F-B3C4-5F5BF9D81188} = {A6EB1ADE-4807-4F5F-B3C4-5F5BF9D81188}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRC32", "CRC32\CRC32.csproj", "{17CB795B-DFBB-4148-9666-18DDAF70C7CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +28,18 @@ Global
 		{0368BC52-A0D0-41DB-861C-7D77A7C1A57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0368BC52-A0D0-41DB-861C-7D77A7C1A57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0368BC52-A0D0-41DB-861C-7D77A7C1A57B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6EB1ADE-4807-4F5F-B3C4-5F5BF9D81188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6EB1ADE-4807-4F5F-B3C4-5F5BF9D81188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6EB1ADE-4807-4F5F-B3C4-5F5BF9D81188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6EB1ADE-4807-4F5F-B3C4-5F5BF9D81188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEFE42D0-2EAE-439E-8348-EB54D7518D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEFE42D0-2EAE-439E-8348-EB54D7518D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEFE42D0-2EAE-439E-8348-EB54D7518D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEFE42D0-2EAE-439E-8348-EB54D7518D99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17CB795B-DFBB-4148-9666-18DDAF70C7CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17CB795B-DFBB-4148-9666-18DDAF70C7CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17CB795B-DFBB-4148-9666-18DDAF70C7CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17CB795B-DFBB-4148-9666-18DDAF70C7CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
