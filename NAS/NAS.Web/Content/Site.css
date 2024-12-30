@@ -1,8 +1,120 @@
-﻿/* Set padding to keep content from hitting the edges */
-.body-content {
-    margin-top: 15px;
-    padding-left: 15px;
+﻿:root {
+    --header-background-color: white;
+    --header-color: white;
+    --theme-toggle-background-color: white;
+    --theme-toggle-color: white;
+    --body-background-color: white;
+    --body-color: white;
+    --page-content-background-color: white;
+    --page-content-color: white;
+    --sidebar-menu-background-color: white;
+    --sidebar-menu-a-color: white;
+    --sidebar-menu-a-active-background-color: white;
+    --sidebar-menu-a-active-color: white;
+    --sidebar-menu-a-hover-background-color: white;
+    --sidebar-menu-a-hover-color: white;
+    --tab-content-background-color: white;
+    --tab-content-color: white;
+    --sidebar-monitor-background-color: white;
+    --sidebar-monitor-color: white;
+    --monitor-log-background-color: white;
+    --monitor-log-color: white;
+    --monitor-queue-background-color: white;
+    --monitor-queue-color: white;
+}
+
+header {
+    background-color: var(--header-background-color);
+    color: var(--header-color);
+    position: fixed;
+    height: 30px;
+    text-align: center;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header h5 {
+    flex: 1;
+}
+
+#theme-toggle {
+    right: 0;
+    width: 30px;
+    background-color: var(--theme-toggle-background-color);
+    color: var(--theme-toggle-color);
+}
+
+body {
+    background-color: var(--body-background-color);
+    color: var(--body-color);
+}
+
+html, body, #page-content{
+    height: 100%;
+    margin: 0;
+}
+
+#page-content {
+    background-color: var(--page-content-background-color);
+    color: var(--page-content-color);
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    padding-top: 30px;
+}
+
+#sidebar-menu {
+    background-color: var(--sidebar-menu-background-color);
+    width: 200px;
+    position: fixed;
+}
+
+#sidebar-monitor {
+    background-color: var(--sidebar-monitor-background-color);
+    color: var(--sidebar-monitor-color);
+    min-width: 300px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar-menu, #sidebar-monitor {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto;
+}
+
+#sidebar-menu a {
+    display: block;
+    color: var(--sidebar-menu-a-color);
+    padding: 16px;
+    text-decoration: none;
+    cursor: default;
+}
+
+#sidebar-menu a.menu-active {
+    background-color: var(--sidebar-menu-a-active-background-color);
+    color: var(--sidebar-menu-a-active-color);
+}
+
+#sidebar-menu a:hover:not(.menu-active) {
+    background-color: var(--sidebar-menu-a-hover-background-color);
+    color: var(--sidebar-menu-a-hover-color);
+}
+
+#tab-content {
+    background-color: var(--tab-content-background-color);
+    color: var(--tab-content-color);
+    padding-top: 15px;
+    padding-left: 215px;
     padding-right: 15px;
+    flex-grow: 1;
+    overflow: auto;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -17,4 +129,44 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+#monitor-log {
+    background-color: var(--monitor-log-background-color);
+    color: var(--monitor-log-color);
+    flex: 3;
+}
+
+#monitor-queue {
+    background-color: var(--monitor-queue-background-color);
+    color: var(--monitor-queue-color);
+    flex: 2;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+    #page-content {
+        flex-direction: column;
+    }
+  #sidebar-menu, #sidebar-monitor {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  #sidebar-menu {
+    min-height: 56px;
+  }
+  #sidebar-monitor {
+    min-height: 200px;
+  }
+  #sidebar-menu a {float: left;}
+  #tab-content {padding-left: 15px;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 300px) {
+  #sidebar-menu a {
+    text-align: center;
+    float: none;
+  }
 }

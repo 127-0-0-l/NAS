@@ -20,6 +20,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRC32", "CRC32\CRC32.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAS.Utils", "NAS.Utils\NAS.Utils.csproj", "{54E9DCE9-8B5F-428E-9A10-027D78B22B5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRC32.Tests", "CRC32.Tests\CRC32.Tests.csproj", "{BFC4B6EE-83CB-42E3-B6CE-96B547F6DAF7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{17CB795B-DFBB-4148-9666-18DDAF70C7CC} = {17CB795B-DFBB-4148-9666-18DDAF70C7CC}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
