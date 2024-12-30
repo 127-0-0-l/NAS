@@ -28,7 +28,7 @@ header {
     color: var(--header-color);
     position: fixed;
     height: 30px;
-    text-align: center;
+    text-align: right;
     z-index: 100;
     left: 0;
     right: 0;
@@ -45,7 +45,12 @@ header h5 {
     right: 0;
     width: 30px;
     background-color: var(--theme-toggle-background-color);
+    background: linear-gradient(-90deg, var(--theme-toggle-background-color) -50%, var(--header-background-color));
     color: var(--theme-toggle-color);
+    text-align: right;
+    padding-top: 2px;
+    padding-right: 5px;
+    flex: 1;
 }
 
 body {
