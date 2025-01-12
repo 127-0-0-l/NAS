@@ -8,17 +8,24 @@ namespace NAS.Storage.Entities
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
-        [ForeignKey(nameof(Claster))]
-        public int ClasterId { get; set; }
+        [ForeignKey(nameof(Disk))]
+        public int DiskId { get; set; }
+
         [Required]
-        public string Path { get; set; }
+        public string Letter { get; set; }
+
         [Required]
         public long TotalSpace { get; set; }
 
-        public virtual Claster Claster { get; set; }
+        [Required]
+        public long FreeSpace { get; set; }
+
+        public virtual Disk Disk { get; set; }
 
         public virtual ICollection<Folder> Folders { get; set; }
+
         public virtual ICollection<File> Files { get; set; }
     }
 }

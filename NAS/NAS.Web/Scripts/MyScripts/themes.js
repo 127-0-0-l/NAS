@@ -1,7 +1,7 @@
 ﻿// light theme colors
 const header_background_color_light = '#126d91';
 const header_color_light = 'white';
-const theme_toggle_background_color_light = 'black';
+const theme_toggle_background_color_light = '#24292e';
 const theme_toggle_color_light = 'white';
 const body_background_color_light = '#FFF';
 const body_color_light = 'black';
@@ -25,7 +25,7 @@ const monitor_queue_color_light = 'black';
 // dark theme colors
 const header_background_color_dark = '#24292e';
 const header_color_dark = 'white';
-const theme_toggle_background_color_dark = 'white';
+const theme_toggle_background_color_dark = '#126d91';
 const theme_toggle_color_dark = 'black';
 const body_background_color_dark = 'black';
 const body_color_dark = 'white';

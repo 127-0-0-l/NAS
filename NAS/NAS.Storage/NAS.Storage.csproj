@@ -53,13 +53,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Claster.cs" />
+    <Compile Include="Entities\Disk.cs" />
     <Compile Include="Entities\File.cs" />
     <Compile Include="Entities\Folder.cs" />
     <Compile Include="Entities\Partition.cs" />
     <Compile Include="Migrations\202412141637535_init.cs" />
     <Compile Include="Migrations\202412141637535_init.Designer.cs">
       <DependentUpon>202412141637535_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202501121510189_change_structure.cs" />
+    <Compile Include="Migrations\202501121510189_change_structure.Designer.cs">
+      <DependentUpon>202501121510189_change_structure.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NASContext.cs" />
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202412141637535_init.resx">
       <DependentUpon>202412141637535_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202501121510189_change_structure.resx">
+      <DependentUpon>202501121510189_change_structure.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,18 +8,17 @@ namespace NAS.Storage.Entities
     {
         [Key]
         public int Id { get; set; }
-        [Required]
-        [ForeignKey(nameof(Partition))]
-        public int PartitionId { get; set; }
+
         [ForeignKey(nameof(ParentFolder))]
         public int? ParentFolderId { get; set; }
+
         [Required]
         public string Name { get; set; }
 
-        public virtual Partition Partition { get; set; }
         public virtual Folder ParentFolder { get; set; }
 
         public virtual ICollection<Folder> Folders { get; set; }
+
         public virtual ICollection<File> Files { get; set; }
     }
 }

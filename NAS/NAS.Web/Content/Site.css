@@ -45,7 +45,7 @@ header h5 {
     right: 0;
     width: 30px;
     background-color: var(--theme-toggle-background-color);
-    background: linear-gradient(-90deg, var(--theme-toggle-background-color) -50%, var(--header-background-color));
+    background: linear-gradient(-90deg, var(--theme-toggle-background-color), var(--header-background-color));
     color: var(--theme-toggle-color);
     text-align: right;
     padding-top: 2px;
