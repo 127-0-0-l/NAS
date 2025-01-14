@@ -273,6 +273,10 @@
     <Content Include="Scripts\jquery-3.7.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NAS.Logic\NAS.Logic.csproj">
+      <Project>{FEFE42D0-2EAE-439E-8348-EB54D7518D99}</Project>
+      <Name>NAS.Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NAS.Utils\NAS.Utils.csproj">
       <Project>{54e9dce9-8b5f-428e-9a10-027d78b22b5a}</Project>
       <Name>NAS.Utils</Name>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NAS.Logic.Managers.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,20 @@ namespace NAS.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IDiskManager _diskManager;
+        private readonly IPartitionManager _partitionManager;
+        private readonly IFolderManager _folderManager;
+        private readonly IFileManager _fileManager;
+
+        public HomeController(IDiskManager diskManager, IPartitionManager partitionManager,
+            IFolderManager folderManager, IFileManager fileManager)
+        {
+            _diskManager = diskManager;
+            _partitionManager = partitionManager;
+            _folderManager = folderManager;
+            _fileManager = fileManager;
+        }
+
         public ActionResult Index()
         {
             return View();
