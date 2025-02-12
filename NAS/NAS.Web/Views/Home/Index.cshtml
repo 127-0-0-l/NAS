@@ -1,33 +1,76 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model NAS.Web.Models.FolderContentModel
+@Styles.Render("~/Content/MyStyles/Storage.css")
+@{
+    Dictionary<string, string> defaultIcons = new Dictionary<string, string>
+{
+        {"xls", "file-excel-o"},
+        {"xlsx", "file-excel-o"},
+        {"doc", "file-word-o"},
+        {"docx", "file-word-o"},
+        {"pdf", "file-pdf-o"},
+        {"ppt", "file-powerpoint-o"},
+        {"pptx", "file-powerpoint-o"},
+        {"txt", "file-text-o"},
+        {"zip", "file-zip-o"},
+        {"rar", "file-zip-o"},
+        {"tar", "file-zip-o"},
+        {"gz", "file-zip-o"},
+        {"jpg", "file-image-o"},
+        {"jpeg", "file-image-o"},
+        {"png", "file-image-o"},
+        {"gif", "file-image-o"},
+        {"bmp", "file-image-o"},
+        {"svg", "file-image-o"},
+        {"html", "file-code-o"},
+        {"css", "file-code-o"},
+        {"js", "file-code-o"},
+        {"json", "file-code-o"},
+        {"mp3", "file-audio-o"},
+        {"wav", "file-audio-o"},
+        {"ogg", "file-audio-o"},
+        {"flac", "file-audio-o"},
+        {"mp4", "file-video-o"},
+        {"avi", "file-video-o"},
+        {"mov", "file-video-o"},
+        {"mkv", "file-video-o"},
+        {"wmv", "file-video-o"}
+    };
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
-
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+<div id="storage-header">
+    <div id="storage-path">@Model.Path</div>
+    <div id="storage-scale-buttons">
+        <div id="storage-scale-plus" onclick="storageUpscale()">
+            <i class="storage-scale-button fa fa-search-plus"></i>
+        </div>
+        <div id="storage-scale-minus" onclick="storageDownscale()">
+            <i class="storage-scale-button fa fa-search-minus"></i>
+        </div>
     </div>
-</main>
+</div>
+
+<div id="storage-body">
+    @foreach (var folder in Model.Folders)
+    {
+        <div class="storage-item">
+            <div class="storage-item-icon fa fa-folder"></div>
+            <div class="storage-item-name" title="@folder.Name">
+                @folder.Name
+            </div>
+        </div>
+    }
+    @foreach (var file in Model.Files)
+    {
+        bool hasPreview = file.Prewiew != null;
+        bool hasExtension = file.Extension != null;
+        string classes = "storage-item-icon fa " + (hasPreview ? "" : (hasExtension ? defaultIcons[file.Extension] : "fa-file-o"));
+        <div class="storage-item">
+            <div class="@classes"></div>
+            <div class="storage-item-name" title="@file.Name">
+                @file.Name
+            </div>
+        </div>
+    }
+</div>
+
+@Scripts.Render("~/Scripts/MyScripts/storage.js")

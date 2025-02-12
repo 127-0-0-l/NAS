@@ -1,0 +1,60 @@
+:root {
+    --storage-item-width: 160px;
+    --storage-item-icon-size: 60px;
+    --storage-item-margin: 8px;
+    --storage-header-background-color: #d7d7d7;
+}
+
+#storage-header {
+    height: 30px;
+    background: linear-gradient(90deg, var(--sidebar-menu-a-active-background-color), var(--monitor-log-background-color));
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+#storage-path{
+    flex: 1;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+#storage-scale-buttons{
+    display: flex;
+    align-items: center;
+}
+
+.storage-scale-button{
+    flex: 1;
+    font-size: 20px;
+    margin: 0 5px;
+    font-weight: 1;
+}
+
+#storage-body {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px 0;
+}
+
+.storage-item {
+    margin: var(--storage-item-margin);
+    text-align: center;
+    width: var(--storage-item-width);
+}
+
+.storage-item-icon{
+    font-size: var(--storage-item-icon-size);
+    width: var(--storage-item-icon-size);
+}
+
+.storage-item-name {
+    width: var(--storage-item-width);
+    height: calc(var(--storage-item-width) / 4);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: calc(var(--storage-item-width) / 8);
+}

@@ -1,4 +1,5 @@
 ﻿using NAS.Logic.Managers.Interfaces;
+using NAS.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,14 +24,22 @@ namespace NAS.Web.Controllers
             _fileManager = fileManager;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string path = null)
         {
-            return View();
+            FolderContentModel fcm = new FolderContentModel();
+            fcm.Folders = new List<FolderModel>();
+            fcm.Files = new List<FileModel>();
+            fcm.Path = "~\\";
+            return View(fcm);
         }
 
         public ActionResult Home()
         {
-            return PartialView("Index");
+            FolderContentModel fcm = new FolderContentModel();
+            fcm.Folders = new List<FolderModel>();
+            fcm.Files = new List<FileModel>();
+            fcm.Path = "C:\\hello\\world\\";
+            return PartialView("Index", fcm);
         }
 
         public ActionResult About()

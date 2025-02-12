@@ -35,22 +35,23 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 header h5 {
     flex: 1;
+    margin: 0;
 }
 
 #theme-toggle {
     right: 0;
-    width: 30px;
-    background-color: var(--theme-toggle-background-color);
     background: linear-gradient(-90deg, var(--theme-toggle-background-color), var(--header-background-color));
     color: var(--theme-toggle-color);
     text-align: right;
     padding-top: 2px;
     padding-right: 5px;
     flex: 1;
+    height: inherit;
 }
 
 body {
@@ -115,9 +116,7 @@ html, body, #page-content{
 #tab-content {
     background-color: var(--tab-content-background-color);
     color: var(--tab-content-color);
-    padding-top: 15px;
-    padding-left: 215px;
-    padding-right: 15px;
+    padding-left: 200px;
     flex-grow: 1;
     overflow: auto;
 }
@@ -165,7 +164,7 @@ textarea {
     min-height: 200px;
   }
   #sidebar-menu a {float: left;}
-  #tab-content {padding-left: 15px;}
+  #tab-content {padding-left: 0px;}
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
@@ -174,4 +173,20 @@ textarea {
     text-align: center;
     float: none;
   }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
