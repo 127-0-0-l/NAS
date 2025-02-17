@@ -10,7 +10,7 @@ namespace NAS.Logic.Managers.Implementations
     {
         public List<PartitionDTO> GetAll()
         {
-            return _context.Partitions.Select(p => EntityToDTO(p)).ToList();
+            return _context.Partitions.ToList().Select(p => EntityToDTO(p)).ToList();
         }
 
         public PartitionDTO GetById(int id)

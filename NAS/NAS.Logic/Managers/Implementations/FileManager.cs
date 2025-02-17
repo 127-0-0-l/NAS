@@ -10,7 +10,7 @@ namespace NAS.Logic.Managers.Implementations
     {
         public List<FileDTO> GetAll()
         {
-            return _context.Files.Select(f => EntityToDTO(f)).ToList();
+            return _context.Files.ToList().Select(f => EntityToDTO(f)).ToList();
         }
 
         public FileDTO GetById(int id)

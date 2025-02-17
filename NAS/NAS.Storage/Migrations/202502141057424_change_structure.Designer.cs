@@ -13,7 +13,7 @@ namespace NAS.Storage.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202501121510189_change_structure"; }
+            get { return "202502141057424_change_structure"; }
         }
         
         string IMigrationMetadata.Source

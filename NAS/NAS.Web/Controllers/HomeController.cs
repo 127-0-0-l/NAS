@@ -26,15 +26,26 @@ namespace NAS.Web.Controllers
 
         public ActionResult Index(string path = null)
         {
+            var files = _fileManager.GetAll();
+            var folders = _folderManager.GetAll();
             FolderContentModel fcm = new FolderContentModel();
-            fcm.Folders = new List<FolderModel>();
-            fcm.Files = new List<FileModel>();
+            fcm.Folders = folders.Select(f => new FolderModel
+            {
+                Name = f.Name,
+                Path = f.Id.ToString()
+            }).ToList();
+            fcm.Files = files.Select(f => new FileModel
+            {
+                Name = f.Name,
+                Extension = f.Extension
+            }).ToList();
             fcm.Path = "~\\";
             return View(fcm);
         }
 
         public ActionResult Home()
         {
+            var folders = _folderManager.GetAll();
             FolderContentModel fcm = new FolderContentModel();
             fcm.Folders = new List<FolderModel>();
             fcm.Files = new List<FileModel>();
