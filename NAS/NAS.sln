@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAS.Web", "NAS.Web\NAS.Web.csproj", "{C78CCA88-657B-4367-B557-C59E621AD848}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAS.Core", "NAS.Core\NAS.Core.csproj", "{064749D6-8B80-48B4-88B1-F9CA7A11D794}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAS.Infrastructure", "NAS.Infrastructure\NAS.Infrastructure.csproj", "{4BFD3872-09F3-46A3-B128-F8C50296FEE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +19,19 @@ Global
 		{C78CCA88-657B-4367-B557-C59E621AD848}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C78CCA88-657B-4367-B557-C59E621AD848}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C78CCA88-657B-4367-B557-C59E621AD848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{064749D6-8B80-48B4-88B1-F9CA7A11D794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{064749D6-8B80-48B4-88B1-F9CA7A11D794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{064749D6-8B80-48B4-88B1-F9CA7A11D794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{064749D6-8B80-48B4-88B1-F9CA7A11D794}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BFD3872-09F3-46A3-B128-F8C50296FEE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BFD3872-09F3-46A3-B128-F8C50296FEE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BFD3872-09F3-46A3-B128-F8C50296FEE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BFD3872-09F3-46A3-B128-F8C50296FEE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35CC9D7B-16BA-4773-80E9-812BD8540495}
 	EndGlobalSection
 EndGlobal
